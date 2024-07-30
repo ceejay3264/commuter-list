@@ -10,6 +10,10 @@ import CoreData
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
+    
+    @State private var showingAlert = false
+    @State private var newItemName = ""
+    @State var data: [ListItem] = []
 
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
@@ -19,29 +23,52 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                    } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
-                    }
+                ForEach(data) { item in
+                    ListItemView(item: item)
                 }
-                .onDelete(perform: deleteItems)
+                .onDelete { indexSet in
+                    // TODO: Update for CoreData
+                    data.remove(atOffsets: indexSet)
+                    
+                }
             }
+            .listStyle(.plain)
+            .navigationTitle("CommuterList")
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
                 ToolbarItem {
-                    Button(action: addItem) {
+                    Button(action: {
+                        showingAlert.toggle()
+                    }) {
                         Label("Add Item", systemImage: "plus")
                     }
+                    .alert("Add an Item", isPresented: $showingAlert) {
+                        TextField("Enter item name", text: $newItemName)
+                        Button("Ok", action: {
+                            addNewItem(withName: newItemName)
+                            newItemName = ""
+                        })
+                        Button("Cancel", role: .cancel) { }
+                    } message: {
+                        Text("Add an item to your list")
+                    }
                 }
             }
-            Text("Select an item")
+
+        }
+        
+    }
+    
+    // TODO: Update for CoreData
+    private func addNewItem(withName name: String) {
+        if !name.isEmpty {
+            withAnimation {
+                let newItem = ListItem(name: name, category: "")
+                data.insert(newItem, at: 0)
+            }
         }
     }
 
+    // Temporary boilerplate code
     private func addItem() {
         withAnimation {
             let newItem = Item(context: viewContext)
@@ -58,9 +85,10 @@ struct ContentView: View {
         }
     }
 
+    // Temporary boilerplate code
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
+            //offsets.map { data[$0] }.forEach(viewContext.delete)
 
             do {
                 try viewContext.save()
@@ -74,6 +102,7 @@ struct ContentView: View {
     }
 }
 
+// Temporary boilerplate code
 private let itemFormatter: DateFormatter = {
     let formatter = DateFormatter()
     formatter.dateStyle = .short

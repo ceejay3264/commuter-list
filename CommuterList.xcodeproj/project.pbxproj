@@ -16,6 +16,9 @@
 		0C1D31112C50B3B4002AB6E4 /* CommuterListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1D31102C50B3B4002AB6E4 /* CommuterListTests.swift */; };
 		0C1D311B2C50B3B4002AB6E4 /* CommuterListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1D311A2C50B3B4002AB6E4 /* CommuterListUITests.swift */; };
 		0C1D311D2C50B3B4002AB6E4 /* CommuterListUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1D311C2C50B3B4002AB6E4 /* CommuterListUITestsLaunchTests.swift */; };
+		0C1D312C2C50BB49002AB6E4 /* CheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1D312B2C50BB49002AB6E4 /* CheckBoxView.swift */; };
+		0C1D312E2C50BBB2002AB6E4 /* ListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1D312D2C50BBB2002AB6E4 /* ListItemView.swift */; };
+		0C1D31312C50BC87002AB6E4 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1D31302C50BC87002AB6E4 /* ListItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +51,9 @@
 		0C1D31162C50B3B4002AB6E4 /* CommuterListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CommuterListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C1D311A2C50B3B4002AB6E4 /* CommuterListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommuterListUITests.swift; sourceTree = "<group>"; };
 		0C1D311C2C50B3B4002AB6E4 /* CommuterListUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommuterListUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		0C1D312B2C50BB49002AB6E4 /* CheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxView.swift; sourceTree = SOURCE_ROOT; };
+		0C1D312D2C50BBB2002AB6E4 /* ListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemView.swift; sourceTree = "<group>"; };
+		0C1D31302C50BC87002AB6E4 /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +106,7 @@
 			children = (
 				0C1D30FA2C50B3B3002AB6E4 /* CommuterListApp.swift */,
 				0C1D30FC2C50B3B3002AB6E4 /* ContentView.swift */,
+				0C1D31292C50BB0D002AB6E4 /* Home */,
 				0C1D30FE2C50B3B4002AB6E4 /* Assets.xcassets */,
 				0C1D31032C50B3B4002AB6E4 /* Persistence.swift */,
 				0C1D31052C50B3B4002AB6E4 /* CommuterList.xcdatamodeld */,
@@ -131,6 +138,32 @@
 				0C1D311C2C50B3B4002AB6E4 /* CommuterListUITestsLaunchTests.swift */,
 			);
 			path = CommuterListUITests;
+			sourceTree = "<group>";
+		};
+		0C1D31292C50BB0D002AB6E4 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				0C1D312F2C50BC76002AB6E4 /* Model */,
+				0C1D312A2C50BB32002AB6E4 /* View */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		0C1D312A2C50BB32002AB6E4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0C1D312B2C50BB49002AB6E4 /* CheckBoxView.swift */,
+				0C1D312D2C50BBB2002AB6E4 /* ListItemView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0C1D312F2C50BC76002AB6E4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0C1D31302C50BC87002AB6E4 /* ListItem.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,7 +297,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C1D31042C50B3B4002AB6E4 /* Persistence.swift in Sources */,
+				0C1D31312C50BC87002AB6E4 /* ListItem.swift in Sources */,
+				0C1D312C2C50BB49002AB6E4 /* CheckBoxView.swift in Sources */,
 				0C1D31072C50B3B4002AB6E4 /* CommuterList.xcdatamodeld in Sources */,
+				0C1D312E2C50BBB2002AB6E4 /* ListItemView.swift in Sources */,
 				0C1D30FD2C50B3B3002AB6E4 /* ContentView.swift in Sources */,
 				0C1D30FB2C50B3B3002AB6E4 /* CommuterListApp.swift in Sources */,
 			);
